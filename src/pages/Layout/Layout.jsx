@@ -5,10 +5,11 @@ import WebsiteDescription from "../../components/WebsiteDescription/WebsiteDescr
 
 export default function Layout({ user, handleLogout }) {
     return (
-        <>
+        <div style={{ display: 'flex' }}>
             <SideMenu handleLogout={handleLogout} />
             <WebsiteDescription />
-        </>
+            <Outlet />
+        </div>
     )
 
 }
