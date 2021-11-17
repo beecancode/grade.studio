@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://preventionlane.org/wp-content/uploads/2015/02/blackboard.jpg");
 }
 
 code {
