@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Image, Menu, Button } from 'semantic-ui-react';
 import './Menu.css'
 
-
 export default function SideMenu({ handleLogout }) {
 
     return (
