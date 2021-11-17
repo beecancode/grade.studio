@@ -1,24 +1,14 @@
-import { Grid, Menu } from "semantic-ui-react";
+import { Grid, Menu, Container } from "semantic-ui-react";
 import { Outlet } from "react-router-dom";
 import SideMenu from "../../components/SideMenu/SideMenu";
+import WebsiteDescription from "../../components/WebsiteDescription/WebsiteDescription";
 
 export default function Layout({ user, handleLogout }) {
-    if (user) {
-        return (
-            <>
-                
-
-            </>
-        );
-    }else{
-        return (
-            <>
+    return (
+        <>
             <SideMenu handleLogout={handleLogout} />
-            </>
-        )
-    }
-
-
-
+            <WebsiteDescription />
+        </>
+    )
 
 }
