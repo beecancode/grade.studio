@@ -26,29 +26,14 @@ export default function SignUpPage(props) {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    // Forms with Files only we have to do, everything else can be json
-    //Take our state 
-    // create a formData object, for our fetch request
-    const formData = new FormData();
-
-    // now we must do the same thing with the rest of our state
-    for (let key in state){
-      formData.append(key, state[key])
-    }
-    // if you log out formData, you won't see anything
-    console.log(formData, " < -This will show nothing")
-    // You can look inside by doing this 
-    console.log(formData.forEach((item) => console.log(item)))
-
-
     try {
       // For requests that are sending over a photo, we must send formData
-      await userService.signup(formData) // after we get a response from the server
+      await userService.signup(state) // after we get a response from the server
 
       props.handleSignUpOrLogin() // decodes our token in localstorage, and sets the users information in our App.js state
       navigate('/') // navigates to the home page route
 
-    } catch(err){
+    } catch (err) {
       setError(err.message)
     }
 
