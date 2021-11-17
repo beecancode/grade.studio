@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
 .App {
   text-align: center;
   background-image: url("https://preventionlane.org/wp-content/uploads/2015/02/blackboard.jpg");
+  font-family: Pangolin, cursive;
 }
 
 .App-logo {
