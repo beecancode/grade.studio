@@ -3,9 +3,22 @@ import { Outlet } from "react-router-dom";
 import SideMenu from "../../components/SideMenu/SideMenu";
 
 export default function Layout({ user, handleLogout }) {
-    return (
-        <>
-                <SideMenu handleLogout={handleLogout} />
-        </>
-    );
+    if (user) {
+        return (
+            <>
+                
+
+            </>
+        );
+    }else{
+        return (
+            <>
+            <SideMenu handleLogout={handleLogout} />
+            </>
+        )
+    }
+
+
+
+
 }

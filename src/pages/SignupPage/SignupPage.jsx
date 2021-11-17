@@ -13,8 +13,7 @@ export default function SignUpPage(props) {
     username: "",
     email: "",
     password: "",
-    passwordConf: "",
-    bio: "",
+    passwordConf: ""
   });
 
   function handleChange(e) {

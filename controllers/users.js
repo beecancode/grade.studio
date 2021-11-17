@@ -8,6 +8,7 @@ module.exports = {
 };
 
 async function signup(req, res) {
+  console.log(req.body, '<- req.body');
   const user = new User(req.body);
   try {
     await user.save();
@@ -16,6 +17,7 @@ async function signup(req, res) {
   } catch (err) {
     // Probably a duplicate email
     res.status(400).json(err);
+    console.log(err, '<- this is the error');
   }
 }
 
