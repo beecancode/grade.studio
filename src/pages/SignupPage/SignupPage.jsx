@@ -46,11 +46,11 @@ export default function SignUpPage(props) {
     <WebsiteDescription />
     <Grid textAlign="center" style={{ height: "100vh"}}>
       <Grid.Column style={{ maxWidth: 450, paddingTop: '45px' }}>
-        <Header as="h2" color="yellow" textAlign="center">
+        <Header as="h2" color="yellow" textAlign="center" style={{ fontFamily: 'Pangolin' }}>
           <Image src="../logo512.png" /> Sign Up
         </Header>
-        <Form autoComplete="off" onSubmit={handleSubmit}>
-          <Segment stacked>
+        <Form inverted autoComplete="off" onSubmit={handleSubmit} >
+          <Segment inverted stacked>
             <Form.Input
               name="username"
               placeholder="username"
@@ -82,7 +82,7 @@ export default function SignUpPage(props) {
               onChange={handleChange}
               required
             />
-            <Button type="submit" className="btn">
+            <Button type="submit" className="btn" color="yellow" style={{ fontFamily: 'Pangolin', fontSize:'20px', color:'black' }}>
               Signup
             </Button>
           </Segment>

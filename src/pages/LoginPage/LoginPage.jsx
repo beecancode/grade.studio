@@ -52,12 +52,12 @@ export default function LoginPage(props) {
         style={{ height: "100vh" }}
       >
         <Grid.Column style={{ maxWidth: 450, paddingTop: '45px' }}>
-          <Header as="h2" color="yellow" textAlign="center">
+          <Header as="h2" color="yellow" textAlign="center" style={{ fontFamily: 'Pangolin' }}>
             <Image src="../logo512.png" /> Log-in to your
             account
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment stacked>
+            <Segment inverted stacked>
               <Form.Input
                 type="email"
                 name="email"
@@ -75,17 +75,18 @@ export default function LoginPage(props) {
                 required
               />
               <Button
-                color="grey"
+                color="yellow"
                 fluid
                 size="large"
                 type="submit"
                 className="btn"
+                style={{ fontFamily: 'Pangolin', fontSize:'20px', color:'black' }}
               >
                 Login
               </Button>
             </Segment>
           </Form>
-          <Message>
+          <Message style={{ fontFamily: 'Pangolin', fontSize:'15px', color:'black' }}>
             New to us? <Link to="/signup">Sign Up</Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}
