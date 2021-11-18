@@ -1,8 +1,10 @@
 
 const mongoose = require('mongoose');
+const {studentSchema} = require('../schemas');
 
-const studentSchema = new mongoose.Schema({
-    name: String
+const submissionSchema = new mongoose.Schema({
+    student: studentSchema,
+    correctAnswers: Number
 })
 
 const assignmentSchema = new mongoose.Schema({
@@ -12,10 +14,7 @@ const assignmentSchema = new mongoose.Schema({
 
 })
 
-const submissionSchema = new mongoose.Schema({
-    student: studentSchema,
-    correctAnswers: Number
-})
+
 
 const classSchema = new mongoose.Schema({
     name: String,
