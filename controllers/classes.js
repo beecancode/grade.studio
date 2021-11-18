@@ -2,7 +2,18 @@ const Class = require('../models/class');
 const Student = require('../models/student')
 
 
-module.exports = { create };
+module.exports = { create, getClass };
+
+async function getClass(req, res) {
+  try {
+    const aClass = await Class.findOne({name: req.body.name});
+    res.json({data: aClass, status: 200})
+
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ err })
+  }
+}
 
 async function create(req, res) {
 
