@@ -3,6 +3,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Image, Segment } from "semantic-ui-react";
 import userService from "../../utils/userService";
 import { useNavigate } from 'react-router-dom';
+import WebsiteDescription from '../../components/WebsiteDescription/WebsiteDescription';
 
 export default function SignUpPage(props) {
 
@@ -41,8 +42,10 @@ export default function SignUpPage(props) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <WebsiteDescription />
+    <Grid textAlign="center" style={{ height: "100vh"}}>
+      <Grid.Column style={{ maxWidth: 450, paddingTop: '45px' }}>
         <Header as="h2" color="yellow" textAlign="center">
           <Image src="../logo512.png" /> Sign Up
         </Header>
@@ -87,5 +90,6 @@ export default function SignUpPage(props) {
         </Form>
       </Grid.Column>
     </Grid>
+    </div>
   );
 }

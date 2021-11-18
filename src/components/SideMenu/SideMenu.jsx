@@ -6,7 +6,7 @@ import './Menu.css'
 export default function SideMenu({ handleLogout }) {
 
     return (
-        <Menu inverted pointing vertical  style={{height: '100vh', width: '400px'}} className='SideMenu'>
+        <Menu inverted pointing vertical  style={{height: '100vh', width: '400px', background: 'none'}} className='SideMenu'>
             <Menu.Header>
                 <Link to="/"><Image src="../Grade.Studio1(2).gif" size='huge' /></Link>
             </Menu.Header>

@@ -5,6 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from "../../utils/userService";
 import Layout from "../Layout/Layout";
+import WebsiteDescription from '../../components/WebsiteDescription/WebsiteDescription';
 
 function App() {
   // decode our jwt token

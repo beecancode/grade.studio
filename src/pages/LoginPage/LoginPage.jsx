@@ -11,6 +11,7 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
+import WebsiteDescription from '../../components/WebsiteDescription/WebsiteDescription';
 
 
 export default function LoginPage(props) {
@@ -44,14 +45,13 @@ export default function LoginPage(props) {
   }
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <WebsiteDescription />
       <Grid
         textAlign="center"
         style={{ height: "100vh" }}
-        verticalAlign="middle"
-        
       >
-        <Grid.Column style={{ maxWidth: 450 }}>
+        <Grid.Column style={{ maxWidth: 450, paddingTop: '45px' }}>
           <Header as="h2" color="yellow" textAlign="center">
             <Image src="../logo512.png" /> Log-in to your
             account
@@ -91,6 +91,6 @@ export default function LoginPage(props) {
           {error ? <ErrorMessage error={error} /> : null}
         </Grid.Column>
       </Grid>
-    </>
+    </div>
   );
 }
