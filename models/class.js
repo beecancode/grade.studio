@@ -7,19 +7,10 @@ const submissionSchema = new mongoose.Schema({
     correctAnswers: Number
 })
 
-const assignmentSchema = new mongoose.Schema({
-    name: String,
-    possAnswers: Number,
-    submissions: [submissionSchema]
-
-})
-
-
-
 const classSchema = new mongoose.Schema({
     name: String,
-    students: [studentSchema],
-    assignments: [assignmentSchema],
+    students: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Student' }],
+    assignments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Assignment' }],
     teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 

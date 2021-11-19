@@ -8,8 +8,6 @@ async function getClass(req, res) {
   try {
     const aClass = await Class.findOne({name: req.body.name})
     await aClass.populate(["teacher", "students"]);
-    aClass.populated('students.name')
-    console.log(students.name);
     res.json({data: aClass, status: 200})
 
   } catch (err) {
@@ -24,9 +22,9 @@ async function create(req, res) {
   try {
     console.log(req.body, req.user);
     const { name, students } = req.body
-    const newStudents = await students.map(student => Student.create({
+    const newStudents = await Promise.all(students.map(student => Student.create({
       name: student
-    }))
+    }).then(newStudent => newStudent._id)))
     const newClass = await Class.create({
       name,
       teacher: req.user,

@@ -4,14 +4,20 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from "../../utils/userService";
+import * as classServices from "../../utils/classService"
 import Layout from "../Layout/Layout";
 
 
 function App() {
   // decode our jwt token
   const [user, setUser] = useState(userService.getUser());
+  const [classes, setClasses] = useState([]);
   // store the payload, aka the users infor in state
+  function getClasses() {
+    console.log()
+    setClasses([])
 
+  }
 
   function handleSignUpOrLogin() {
     // this function we want to call after we signup or login
@@ -29,7 +35,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout handleLogout={handleLogout} />}
+          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} />}
         >
           <Route
             path="/login"

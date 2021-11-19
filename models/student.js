@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-const studentSchema = new mongoose.Schema({
-    correctAnswers: Number,
-    
-})
+const { studentSchema } = require('../schemas')
 
 module.exports = mongoose.model('Student', studentSchema);

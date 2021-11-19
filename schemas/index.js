@@ -9,9 +9,12 @@ const studentSchema = new mongoose.Schema({
 })
 
 const submissionSchema = new mongoose.Schema({
-    student: studentSchema,
+    student: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Student"
+    },
     correctAnswers: Number,
-    sumbissionId:{
+    submissionId:{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Submission"
     }
@@ -20,7 +23,10 @@ const submissionSchema = new mongoose.Schema({
 const assignmentSchema = new mongoose.Schema({
     name: String,
     possAnswers: Number,
-    submissions: [submissionSchema],
+    submissions: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Submission"
+    }],
     assignmentId:{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Assignment"

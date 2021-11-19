@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
+import { addClass } from '../../utils/classService'
 import {
     Button,
     Form,
 } from "semantic-ui-react";
 
 
-export default function ClassForm() {
+export default function ClassForm({getClasses}) {
 
     const [state, setState] = useState({
         name: "",
         students: [""]
     })
 
-    function submitClass(){
-        console.log(JSON.stringify(state));
+    async function submitClass(){
+        const response = await addClass(state)
+        console.log(response);
+        await getClasses()
+
     }
 
     function formHandler(eventObject) {
