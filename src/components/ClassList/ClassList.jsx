@@ -7,7 +7,14 @@ export default function ClassList({ classes }) {
         pathname:`/class/${_id}`,
         state:{_id, name, ...rest}
     }} key={_id}>
-        <Menu.Item>{name}</Menu.Item>
+        <Menu.Item style={{
+                color: 'white',
+                paddingTop: '15px',
+                paddingBottom: '5px',
+                marginTop: 'auto',
+                fontFamily: 'Pangolin',
+                fontSize: '25px'
+            }}>{name}</Menu.Item>
     </Link>
 
     )

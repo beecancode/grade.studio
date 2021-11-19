@@ -52,7 +52,7 @@ function App() {
           element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
         />
         <Route
-          path="/class/:username"
+          path="/class/:classId"
           element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
         />
       </Routes>
