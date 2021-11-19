@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image, Menu, Button, Grid } from 'semantic-ui-react';
 import './Menu.css'
+import ClassList from '../ClassList/ClassList'
 
-export default function SideMenu({ handleLogout }) {
 
+export default function SideMenu({ handleLogout, classes, getClasses }) {
+console.log(classes);
     return (
         <Menu inverted pointing vertical  style={{height: '100vh', width: '400px', background: 'none'}} className='SideMenu'>
             <Menu.Header>
@@ -18,6 +20,8 @@ export default function SideMenu({ handleLogout }) {
                 </Grid.Row>
                 </Grid>
             </Menu.Item>
+            <ClassList classes={classes ? classes:[]} />
+
         </Menu>
     )
 }

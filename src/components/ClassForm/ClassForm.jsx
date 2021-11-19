@@ -16,7 +16,7 @@ export default function ClassForm({getClasses}) {
     async function submitClass(){
         const response = await addClass(state)
         console.log(response);
-        await getClasses()
+        await getClasses(state)
 
     }
 

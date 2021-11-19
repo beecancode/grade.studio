@@ -20,6 +20,7 @@ export default function AssignmentForm() {
                 <label for="possAnswers">Number of Possible Answers</label>
                 <Form.Input
                 name="possAnswers"
+                type="Number"
                 value={state.possAnswers}
                 />
             </Form>

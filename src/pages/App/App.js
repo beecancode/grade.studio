@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
@@ -11,13 +11,27 @@ import Layout from "../Layout/Layout";
 function App() {
   // decode our jwt token
   const [user, setUser] = useState(userService.getUser());
-  const [classes, setClasses] = useState([]);
+  const [classes, setClasses] = useState(null);
   // store the payload, aka the users infor in state
   function getClasses() {
-    console.log()
-    setClasses([])
-
+    setClasses(null)
   }
+  useEffect(() => {
+    async function fetchClasses() {
+      try {
+        const teacherClasses = await classServices.getClasses()
+        console.log(teacherClasses)
+        if (teacherClasses.status !== 200) {
+          throw new Error(teacherClasses.errors)
+        }
+        const { data } = teacherClasses
+        setClasses(data)
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    if(!classes){fetchClasses()}
+  }, [classes])
 
   function handleSignUpOrLogin() {
     // this function we want to call after we signup or login
@@ -35,18 +49,12 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} />}
-        >
-          <Route
-            path="/login"
-            element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-          />
-
-          <Route
-            path="/signup"
-            element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-          />
-        </Route>
+          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
+        />
+        <Route
+          path="/class/:username"
+          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
+        />
       </Routes>
     );
   }

@@ -1,14 +1,17 @@
 const Class = require('../models/class');
 const Student = require('../models/student')
-
+const User = require('../models/user')
 
 module.exports = { create, getClass };
 
 async function getClass(req, res) {
   try {
-    const aClass = await Class.findOne({name: req.body.name})
-    await aClass.populate(["teacher", "students"]);
-    res.json({data: aClass, status: 200})
+		const { user: { username} } = req
+		const teacher = await User.findOne({username})
+		const classes = await Class.find({teacher: teacher._id})
+		console.log(classes)
+		await Promise.all(classes.map(aClass => aClass.populate(["teacher", "students"])));
+    res.json({data: classes, status: 200})
 
   } catch (err) {
     console.log(err);
