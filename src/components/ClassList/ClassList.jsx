@@ -13,7 +13,7 @@ export default function ClassList({ classes }) {
                 paddingBottom: '5px',
                 marginTop: 'auto',
                 fontFamily: 'Pangolin',
-                fontSize: '25px'
+                fontSize: '20px'
             }}>{name}</Menu.Item>
     </Link>
 
