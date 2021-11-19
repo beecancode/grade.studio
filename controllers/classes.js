@@ -6,7 +6,10 @@ module.exports = { create, getClass };
 
 async function getClass(req, res) {
   try {
-    const aClass = await Class.findOne({name: req.body.name});
+    const aClass = await Class.findOne({name: req.body.name})
+    await aClass.populate(["teacher", "students"]);
+    aClass.populated('students.name')
+    console.log(students.name);
     res.json({data: aClass, status: 200})
 
   } catch (err) {
