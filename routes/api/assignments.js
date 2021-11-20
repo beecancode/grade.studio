@@ -1,4 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const AssignmentCtl = require('../../controllers/assignments')
+const assignmentCtl = require('../../controllers/assignments')
 
+router.post('/create', assignmentCtl.create);
+
+module.exports = router;
