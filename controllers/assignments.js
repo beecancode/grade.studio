@@ -1,27 +1,23 @@
-const User = require('../models/user')
 const Class = require('../models/class');
-const Assignment = require('../models/assignment')
-
-module.exports = { create };
+let Assignment = require('../models/assignment');
 
 async function create(req, res){
- console.log(req.body)
-    try {
-        console.log(req.body, req.user);
-        const thisClass = await Class.findbyId(req.params.class.id);
-        console.log(req.params.class.id);
-        const newAssignment = await Assignment.create({
-            name: req.body.name,
-            possAnswers: req.body.possAnswers
-        })
-        thisClass.assignments.push({
-            newAssignment
-        })
-        await thisClass.save()
-        res.status(201).json({data: 'added assignment'})
-    } catch(err){
-        console.log(err)
-}
-        res.status(400).json({err})
-    }
-    
+	console.log(req.body)
+	try {
+		const { classId, name, possAnswers } = req.body
+		const thisClass = await Class.findById(classId);
+		const newAssignment = await Assignment.create({ name, possAnswers })
+		thisClass.assignments.push(newAssignment._id)
+		thisClass.save()
+		await thisClass.populate("teacher")
+		await thisClass.populate("students")
+		await thisClass.populate("assignments")
+		console.log(thisClass)
+		res.status(201).json({data: thisClass})
+	} catch(err){
+		console.log(err)
+		res.status(400).json(err)
+	}
+} 
+
+module.exports = { create };
