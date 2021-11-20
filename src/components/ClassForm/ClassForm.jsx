@@ -48,8 +48,8 @@ export default function ClassForm({getClasses}) {
     const disableSubmit = (state.students[state.students.length - 1].trim() === "") || (state.name.trim() === "")
 
     return (
-        <div>
-            <Form>
+        <div style={{ backgroundColor:'black', padding: '10px' }}>
+            <Form >
                 <Form.Input
                     name="name"
                     placeholder="Class Name"
@@ -66,12 +66,12 @@ export default function ClassForm({getClasses}) {
                     />
                     <div style={{ position: 'absolute'  }}><Button  floated='right' onClick={() => deleteStudentHandler(index)}>X</Button></div>
                     </div>{(index === state.students.length - 1 && name.trim() !== "") &&
-                     <Button onClick={addStudentHandler}>Add Another Student</Button>}
+                     <Button inverted color="white" onClick={addStudentHandler}>Add Another Student</Button>}
                      
                      </>)
                 })}
             </Form>
-            <Button onClick={submitClass} disabled={disableSubmit} className="btn">
+            <Button inverted color="white" onClick={submitClass} disabled={disableSubmit} className="btn">
                 Submit New Class
             </Button>
         </div>

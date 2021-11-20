@@ -17,6 +17,10 @@
   }
 }
 
+input[type='number']{
+  width: 55px;
+} 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

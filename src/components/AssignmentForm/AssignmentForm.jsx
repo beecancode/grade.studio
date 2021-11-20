@@ -26,24 +26,26 @@ export default function AssignmentForm({ aClass, getClasses }) {
 	}
 
 	return (
-		<div>
-			<Form>
-				<label>Name of Assignment</label>
+		<div style={{ color:'white', border:'solid', textAlign:'center'}}>
+			<Form style={{ color:'white', marginTop:'10px'}}>
+				<label style={{ color:'white', fontSize:'20px' }}>Name of Assignment</label>
 				<Form.Input
-					name="name"
+					name="name" 
 					placeholder="i.e Mid-Chapter Test"
 					value={state.name}
 					onChange={changeHandler}
+					style={{ color:'white', width:'30vw'}}
 				/>
-				<label>Number of Possible Answers</label>
+				<label style={{ color:'white', fontSize:'20px' }}>Possible answers</label>
 				<Form.Input
 					name="possAnswers"
 					type="Number"
 					value={state.possAnswers}
 					onChange={changeHandler}
+					style={{ color:'white', width:'6vw'}}
 				/>
 			</Form>
-			<Button onClick={submitAssignment}>Add Assignment</Button>
+			<Button inverted color="white" onClick={submitAssignment}>Add Assignment</Button>
 		</div>
 	)
 }

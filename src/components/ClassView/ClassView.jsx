@@ -14,19 +14,28 @@ export default function ClassView({classes, getClasses}) {
 
 		console.log(aClass?.assignments)
     return !aClass ? <></>: (
-        <div>
+        <div style={{ backgroundColor:'#262626', padding: '10px', minWidth:'70vw' }}>
             <Header as="h1" style={{
                 color: 'white',
                 border: 'solid',
                 textAlign: 'center',
                 marginBottom: 'auto',
+                fontFamily: 'Pangolin'
             }}>{ aClass.name }</Header>
-            <Table celled color='black' inverted selectable style={{ 
-                border: 'solid', 
-                minWidth: '600px',
-                textAlign: 'center', 
-                marginTop: 'auto' }}>
-                <Table.Header style={{ paddingtop: '5px', fontSize: '20px' }}>{ aClass.name } Assignments</Table.Header>
+            
+            <Table celled color='black' inverted selectable style={{
+                color: 'white',
+                border: 'solid',
+                textAlign: 'center',
+                marginBottom: 'auto'
+            }}>
+              <Header as="h2" style={{
+                color: 'white',
+                border: 'solid',
+                textAlign: 'center',
+                marginBottom: 'auto',
+                fontFamily: 'Pangolin'
+            }}>{ aClass.name } Assignments</Header>
 									<AssignmentList setSelectedAssignment={setSelectedAssignment} assignments={aClass.assignments}/>
             </Table>
             <AssignmentForm aClass={aClass} getClasses={getClasses}/>
