@@ -49,11 +49,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
+          element={<Layout handleLogout={handleLogout} classes={classes ? classes:[]} getClasses={getClasses} loading={!classes} />}
         />
         <Route
           path="/class/:classId"
-          element={<Layout handleLogout={handleLogout} classes={classes} getClasses={getClasses} loading={!classes} />}
+          element={<Layout handleLogout={handleLogout} classes={classes ? classes:[]} getClasses={getClasses} loading={!classes} />}
         />
       </Routes>
     );

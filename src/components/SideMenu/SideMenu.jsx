@@ -8,7 +8,7 @@ import ClassList from '../ClassList/ClassList'
 export default function SideMenu({ handleLogout, classes, getClasses }) {
     console.log(classes);
     return (
-        <Menu inverted pointing vertical style={{ height: '100vh', width: '400px', textAlign: 'center' }} className='SideMenu'>
+        <Menu inverted pointing vertical style={{ height: '100vh', minWidth: '400px', textAlign: 'center' }} className='SideMenu'>
             <Menu.Header>
                 <Link to="/"><Image src="../Grade.Studio1(2).gif" size='huge' /></Link>
             </Menu.Header>
