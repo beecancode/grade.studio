@@ -1,21 +1,18 @@
-
 import React, { useState } from 'react'
 import { Table, Header } from 'semantic-ui-react'
 import { useParams } from "react-router-dom";
 import AssignmentForm from '../AssignmentForm/AssignmentForm';
+import AssignmentList from '../AssignmentList/AssignmentList';
+import SelectedAssignment from '../SelectedAssignment/SelectedAssignment'
 
-function getClassName(){
-
-}
-
-export default function ClassView({classes}) {
+export default function ClassView({classes, getClasses}) {
 
     const [className, setClassName] = useState("")
+		const [ selectedAssignment, setSelectedAssignment] = useState(null)
     const thisClass = useParams();
-    console.log(thisClass)
     const aClass = classes.find(element => element._id === thisClass.classId)
 
-
+		console.log(aClass?.assignments)
     return !aClass ? <></>: (
         <div>
             <Header as="h1" style={{
@@ -29,14 +26,11 @@ export default function ClassView({classes}) {
                 minWidth: '600px',
                 textAlign: 'center', 
                 marginTop: 'auto' }}>
-                <Table.Header style={{ paddingtop: '5px' }}>{ aClass.name } Assignments</Table.Header>
-                <Table.Body>
-                    <Table.Row disabled>
-                        <Table.Cell>Mid-Chapter Assessment</Table.Cell>
-                    </Table.Row>
-                </Table.Body>
+                <Table.Header style={{ paddingtop: '5px', fontSize: '20px' }}>{ aClass.name } Assignments</Table.Header>
+									<AssignmentList setSelectedAssignment={setSelectedAssignment} assignments={aClass.assignments}/>
             </Table>
-            <AssignmentForm aClass={aClass} />
+            <AssignmentForm aClass={aClass} getClasses={getClasses}/>
+					{ selectedAssignment && <SelectedAssignment assignment={selectedAssignment}	students={aClass.students}/>}
         </div>
     )
 }

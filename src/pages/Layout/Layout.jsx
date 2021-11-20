@@ -17,7 +17,7 @@ export default function Layout({ user, handleLogout, classes, getClasses, ...pro
     return (
         <div style={{ display: 'flex' }}>
             <SideMenu handleLogout={handleLogout} classes={classes} getClasses={getClasses} />
-            <ClassView classes={classes} />
+            <ClassView classes={classes}  getClasses={getClasses}/>
             <Outlet />
         </div>
     )
