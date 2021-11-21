@@ -14,7 +14,7 @@ export default function ClassView({classes, getClasses}) {
 
 		console.log(aClass?.assignments)
     return !aClass ? <></>: (
-        <div style={{ backgroundColor:'#262626', padding: '10px', minWidth:'70vw' }}>
+        <div style={{ padding: '10px', minWidth:'70vw' }}>
             <Header as="h1" style={{
                 color: 'white',
                 border: 'solid',

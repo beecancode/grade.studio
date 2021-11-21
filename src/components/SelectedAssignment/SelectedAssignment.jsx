@@ -20,10 +20,11 @@ export default function SelectedAssignment({ assignment, students }) {
 	}
 
 	return (
-		<>
+		<div style={{ textAlign: 'center' }} >
+		<Table celled inverted fixed >
 			{students.map(({ _id, name }) => {
 				return (
-					<Table celled inverted fixed >
+					
 						<Table.Row key={_id} style={{ fontSize: '20px', width: '50vw' }}>
 							<Table.Cell>
 								{name}
@@ -43,14 +44,16 @@ export default function SelectedAssignment({ assignment, students }) {
 								</Input>
 							</Table.Cell>
 							<Table.Cell>
-								{percentage(correctAnswers, possAnswers)}
+								{percentage(correctAnswers.value, possAnswers)}%
 							</Table.Cell>
 
 						</Table.Row>
-					</Table>
+					
 				)
 			})}
-			<Button inverted color="white" onClick={submitGrades}>submit grades</Button>
-		</>
+			</Table>
+			<Button inverted color="white" onClick={submitGrades} size="large"  >submit grades</Button>
+		
+		</div>
 	)
 }

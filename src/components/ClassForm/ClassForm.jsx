@@ -48,29 +48,33 @@ export default function ClassForm({getClasses}) {
     const disableSubmit = (state.students[state.students.length - 1].trim() === "") || (state.name.trim() === "")
 
     return (
-        <div style={{ backgroundColor:'black', padding: '10px' }}>
+        <div style={{ color:'white', border:'solid', textAlign:'center', padding: '10px', minWidth:'60vw'}}>
             <Form >
+                <label style={{ color:'white', fontSize:'20px', marginTop:'15px' }}>Name of Class</label>
                 <Form.Input
                     name="name"
                     placeholder="Class Name"
                     value={state.name}
                     onChange={formHandler}
                 />
+                <label style={{ color:'white', fontSize:'20px', marginTop:'15px' }}>Student Name</label>
                 {state.students.map((name, index) => {
                     
-                    return (<><div style={{ display: 'flex', flexDirection: 'row-reverse' }}><Form.Input
+                    return (<><div style={{ display: 'flex', flexDirection: 'row-reverse', minWidth:'60vw' }}><Form.Input
                         name={`students ${index}`}
                         placeholder="Student Name"
                         value={name}
                         onChange={formHandler}
+                        style={{ minWidth:'60vw' }}
                     />
                     <div style={{ position: 'absolute'  }}><Button  floated='right' onClick={() => deleteStudentHandler(index)}>X</Button></div>
-                    </div>{(index === state.students.length - 1 && name.trim() !== "") &&
-                     <Button inverted color="white" onClick={addStudentHandler}>Add Another Student</Button>}
+                    </div>
+                     
                      
                      </>)
                 })}
             </Form>
+            <Button inverted color="white" onClick={addStudentHandler}>Add Another Student</Button>
             <Button inverted color="white" onClick={submitClass} disabled={disableSubmit} className="btn">
                 Submit New Class
             </Button>

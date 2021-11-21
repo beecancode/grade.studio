@@ -12,7 +12,8 @@ function App() {
   // decode our jwt token
   const [user, setUser] = useState(userService.getUser());
   const [classes, setClasses] = useState(null);
-  // store the payload, aka the users infor in state
+ 
+
   function getClasses() {
     setClasses(null)
   }

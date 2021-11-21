@@ -1,21 +1,36 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react';
+import { Menu, Table, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export default function ClassList({ classes }) {
-    return classes.map(({ _id, name, ...rest }) => <Link to={{
-        pathname:`/class/${_id}`,
-        state:{_id, name, ...rest}
+    return (
+        <Table celled inverted selectable style={{
+			color: 'white',
+			marginTop: 'auto',
+			fontFamily: 'Pangolin',
+			fontSize: '20px',
+            textAlign: 'center',
+            paddingBottom: '5px',
+            background: 'none',
+		}}>
+
+        
+        
+        {classes && classes.map((aClass) => {
+            const { name, _id } = aClass
+            return(
+        <Table.Row><Link to={{pathname:`/class/${_id}`,
+        state:{_id, name }
     }} key={_id}>
-        <Menu.Item style={{
-                color: 'white',
+        <Table.Cell selectable style={{
                 paddingTop: '15px',
                 paddingBottom: '5px',
                 marginTop: 'auto',
                 fontFamily: 'Pangolin',
                 fontSize: '20px'
-            }}>{name}</Menu.Item>
-    </Link>
-
+            }}><Button inverted color="white" style={{ width: '300px' }}>{name}</Button></Table.Cell></Link></Table.Row>
+    )
+    
+        })}</Table>
     )
 }
