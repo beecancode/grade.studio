@@ -7,12 +7,12 @@ export default function SelectedAssignment({ assignment, students }) {
 	for (const { name, _id } of students) {
 		initialObject[_id] = possAnswers
 	}
-	const [grades, setGrades] = useState(initialObject)
+	const [correctAnswers, setCorrectAnswers] = useState(initialObject)
 	function submitGrades() {
-		console.log(JSON.stringify({ grades, assignmentId: assignment._id }))
+		console.log(JSON.stringify({ correctAnswers, assignmentId: assignment._id }))
 	}
 	function handleChange({ target: { name, value } }) {
-		setGrades({ ...grades, [name]: Number(value) })
+		setCorrectAnswers({ ...correctAnswers, [name]: Number(value) })
 	}
 
 	function percentage(correct, possible) {
@@ -32,7 +32,7 @@ export default function SelectedAssignment({ assignment, students }) {
 								<Input
 									labelPosition='right'
 									type="number"
-									value={grades[_id]}
+									value={correctAnswers[_id]}
 									max={possAnswers}
 									min={0}
 									name={_id}
@@ -41,6 +41,9 @@ export default function SelectedAssignment({ assignment, students }) {
 									<input style={{ width: '90px' }} />
 									<Label>/{possAnswers}</Label>
 								</Input>
+							</Table.Cell>
+							<Table.Cell>
+								{percentage(correctAnswers, possAnswers)}
 							</Table.Cell>
 
 						</Table.Row>

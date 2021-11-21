@@ -23,6 +23,7 @@ app.use(require('./config/auth'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/classes', require('./routes/api/classes'));
 app.use('/api/assignments', require('./routes/api/assignments'));
+app.use('/api/submissions', require('./routes/api/submissions'));
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
