@@ -35,12 +35,12 @@ export default function SideMenu({ handleLogout, classes, showClassForm, setButt
             }}>My Classes   
             </Menu.Header>
             <ClassList classes={classes ? classes : []} />
-            <Step.Group stackable vertical inverted style={{ maxWidth: '75vw' }}>
+            <Step.Group stackable vertical inverted style={{ maxWidth: '75vw', fontFamily: 'Pangolin' }}>
                 <Header as='h2' style={{ color: 'white', marginTop: '15px', marginBottom: 'auto', padding: '5px', fontFamily: 'Pangolin' }}>Grade.Studio Steps for Success</Header>
                 <Step active>
                     <Icon name='pencil' />
                     <Step.Content>
-                        <Step.Title>Add a Class</Step.Title>
+                        <Step.Title style={{ fontSize:'18px', fontFamily: 'Pangolin' }}>Add a Class</Step.Title>
                         <Step.Content>
                             <ol>
                                 <li>Add your class by name</li>
@@ -53,7 +53,7 @@ export default function SideMenu({ handleLogout, classes, showClassForm, setButt
                 <Step>
                     <Icon name='paperclip' />
                     <Step.Content>
-                        <Step.Title>Add assignments</Step.Title>
+                        <Step.Title style={{ fontSize:'18px', fontFamily: 'Pangolin' }}>Add assignments</Step.Title>
                         <Step.Content>
                             <ol>
                                 <li>Click on the desired class</li>
@@ -67,7 +67,7 @@ export default function SideMenu({ handleLogout, classes, showClassForm, setButt
                 <Step >
                     <Icon name='percent' />
                     <Step.Content>
-                        <Step.Title>Grade an Assignment</Step.Title>
+                        <Step.Title style={{ fontSize:'18px', fontFamily: 'Pangolin' }}>Grade an Assignment</Step.Title>
                         <ol>
                         <li>Choose an assignment to be graded</li>
                         <li>Input the number of correct answers for each Student</li>
