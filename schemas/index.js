@@ -17,6 +17,10 @@ const submissionSchema = new mongoose.Schema({
     submissionId:{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Submission"
+    },
+    assignmentId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Assignment"
     }
 })
 

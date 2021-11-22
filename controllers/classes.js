@@ -10,7 +10,15 @@ async function getClass(req, res) {
     const { user: { username } } = req
     const teacher = await User.findOne({ username })
     const classes = await Class.find({ teacher: teacher._id })
-    await Promise.all(classes.map(aClass => aClass.populate(["teacher", "students", "assignments"])));
+    await Promise.all(classes.map(aClass => {
+      const getNestedAssignments = async () => {
+        await aClass.populate(["teacher", "students", "assignments"])
+        await Promise.all(aClass.assignments.map((assignment) =>{
+          return assignment.populate('submissions')
+        }))
+      }
+      return getNestedAssignments
+    }));
     console.log(classes)
     res.json({ data: classes, status: 200 })
 

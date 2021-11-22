@@ -14,7 +14,7 @@ export default function AssignmentList({assignments, setSelectedAssignment}){
 				const {name, _id} = assignment
 				return(<Table.Row key={_id} onClick={() => setSelectedAssignment(assignment)}>
 					<Table.Cell>
-						{name}
+						{assignment.name}
 					</Table.Cell>
 					</Table.Row>)
 			})}

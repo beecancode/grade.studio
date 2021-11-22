@@ -1,23 +1,36 @@
-const Submission = require('../models/submission')
 const Assignment = require('../models/assignment')
 const Student = require('../models/student')
 
-module.exports = {create};
+module.exports = { create };
 
-async function create(req, res){
+async function create(req, res) {
 	console.log(req.body)
 	try {
-		const { studentId, correctAnswers, assignmentId  } = req.body
-		const student = await Student.findById(studentId)
+		const { correctAnswers, assignmentId } = req.body
 		const assignment = await Assignment.findById(assignmentId);
-		const newSubmission = await Submission.create({ correctAnswers })
-		assignment.submissions.push(newSubmission._id)
+		await assignment.populate('submissions')
+		const newSubmissions = await Promise.all(Object.keys(correctAnswers).map(studentId => {
+			const pushSubmissions = async () => {
+				const submission = await Submission.create({
+					correctAnswers: correctAnswers[studentId],
+					student: studentId,
+					assignmentId
+				})
+				await submission.populate('student')
+				assignment.submissions.push(submission)
+				return submission
+
+			}
+			return pushSubmissions()
+		})
+		)
+		console.log(assignment, newSubmissions)
 		assignment.save()
-		await assignment.populate("submissions")
-		console.log(assignment)
-		res.status(201).json({data: assignment})
-	} catch(err){
+		await assignment.populate('submissions')
+		await Promise.all(assignment.submissions.map(submission => submission.populate('student')))
+		res.status(201).json({ data: assignment })
+	} catch (err) {
 		console.log(err)
 		res.status(400).json({ err })
 	}
-} 
+}
