@@ -9,7 +9,7 @@ This application was creating using the MERN stack (Mongoose, Express, React, No
 
 # Getting Started
 
-Click [here](grade.studio) to launch Grade.Studio
+Click [here](https://grade.studio) to launch Grade.Studio
 
 Link to [Trello](https://trello.com/b/W95uO7Gs/gradestudio)
 
