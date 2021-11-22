@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Label, Table, Button, Input } from 'semantic-ui-react'
+import { Label, Table, Button, Input, Header } from 'semantic-ui-react'
 import { addSubmission } from '../../utils/submissionService'
 export default function SelectedAssignment({ assignment, students }) {
 	const [correctAnswers, setCorrectAnswers] = useState({})
@@ -47,7 +47,22 @@ export default function SelectedAssignment({ assignment, students }) {
 
 	return (
 		<div style={{ textAlign: 'center' }} >
-			<Table celled inverted fixed >
+			<Header as="h1" style={{
+                color: 'white',
+                border: 'solid',
+                textAlign: 'center',
+                marginBottom: 'auto',
+                fontFamily: 'Pangolin',
+				fontSize: '40px',
+				background: '#262626'
+            }}>{ assignment.name }</Header>
+			<Table celled inverted fixed style={{
+                color: 'white',
+                border: 'solid',
+                textAlign: 'center',
+                fontFamily: 'Pangolin',
+				marginTop: 'auto'
+            }}>
 				{students.map(({ _id, name }) => {
 					return (
 
@@ -85,12 +100,12 @@ export default function SelectedAssignment({ assignment, students }) {
 				<Button
 					inverted color="white"
 					onClick={updateGrades}
-					size="large"
+					size="massive"
 				>
 					update grades
 				</Button>
 				:
-				<Button inverted color="white" onClick={submitGrades} size="large"  >Submit Grades</Button>
+				<Button inverted color="white" onClick={submitGrades} size="massive"  >Submit Grades</Button>
 			}
 
 
