@@ -1,28 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Label, Table, Button, Input } from 'semantic-ui-react'
 import { addSubmission } from '../../utils/submissionService'
 export default function SelectedAssignment({ assignment, students }) {
-
+	const [correctAnswers, setCorrectAnswers] = useState({})
+	const [currentAssignmentId, setCurrentAssignmentId] = useState("")
 	const { possAnswers, submissions } = assignment
-	const initialObject = {}
-	for (const { name, _id } of students) {
-		let score = possAnswers
-		const alreadySubmitted = submissions.find(({ student }) => student === _id)
-		if (alreadySubmitted) {
-			score = alreadySubmitted.correctAnswers
+
+
+
+	useEffect(() => {
+		if (currentAssignmentId !== assignment._id) {
+			const correctAnswersObject = {}
+			for (const {  _id } of students) {
+				let score = possAnswers
+				const alreadySubmitted = submissions.find(({ student }) => student === _id)
+				if (alreadySubmitted) {
+					score = alreadySubmitted.correctAnswers
+				}
+				correctAnswersObject[_id] = score
+			}
+			setCurrentAssignmentId(assignment._id)
+			setCorrectAnswers(correctAnswersObject)
 		}
-		initialObject[_id] = score
-	}
-	const [correctAnswers, setCorrectAnswers] = useState(initialObject)
+	}, [correctAnswers, students, assignment, possAnswers, submissions])
+
 	async function submitGrades() {
 		const submittedGrades = await addSubmission({
 			correctAnswers,
 			assignmentId: assignment._id
 		})
 	}
+	
 	async function updateGrades() {
 		console.log('-----> now update instead of submit', correctAnswers, assignment._id)
 	}
+
 	function handleChange({ target: { name, value } }) {
 		setCorrectAnswers({ ...correctAnswers, [name]: Number(value) })
 	}
@@ -59,10 +71,10 @@ export default function SelectedAssignment({ assignment, students }) {
 								</Input>
 							</Table.Cell>
 							<Table.Cell>
-								{percentage(correctAnswers.value, possAnswers)}
+								{percentage(correctAnswers[_id], possAnswers)}%
 							</Table.Cell>
-							
-							
+
+
 						</Table.Row>
 
 					)

@@ -17,7 +17,7 @@ async function getClass(req, res) {
           return assignment.populate('submissions')
         }))
       }
-      return getNestedAssignments
+      return getNestedAssignments()
     }));
     console.log(classes)
     res.json({ data: classes, status: 200 })

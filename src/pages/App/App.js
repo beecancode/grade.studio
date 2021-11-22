@@ -18,6 +18,7 @@ function App() {
     setClasses(null)
   }
   useEffect(() => {
+    console.log(classes);
     async function fetchClasses() {
       try {
         const teacherClasses = await classServices.getClasses()
