@@ -1,7 +1,7 @@
 import { Table } from 'semantic-ui-react'
-export default function AssignmentList({assignments, setSelectedAssignment}){
+export default function AssignmentList({ assignments, setSelectedAssignment }) {
 
-	return(
+	return (
 		<Table.Body celled style={{
 			color: 'white',
 			paddingTop: '15px',
@@ -11,12 +11,14 @@ export default function AssignmentList({assignments, setSelectedAssignment}){
 			fontSize: '20px'
 		}}>
 			{assignments && assignments.map((assignment) => {
-				const {name, _id} = assignment
-				return(<Table.Row key={_id} onClick={() => setSelectedAssignment(assignment)}>
-					<Table.Cell>
-						{assignment.name}
-					</Table.Cell>
-					</Table.Row>)
+				const { name, _id } = assignment
+				return (
+					<Table.Row key={_id} onClick={() => setSelectedAssignment(assignment)}>
+						<Table.Cell>
+							{assignment.name}
+						</Table.Cell>
+					</Table.Row>
+				)
 			})}
 		</Table.Body>
 	)

@@ -1,7 +1,9 @@
 const Assignment = require('../models/assignment')
 const Student = require('../models/student')
+const Submission = require('../models/submission')
 
-module.exports = { create };
+
+module.exports = { create, update };
 
 async function create(req, res) {
 	console.log(req.body)
@@ -33,4 +35,13 @@ async function create(req, res) {
 		console.log(err)
 		res.status(400).json({ err })
 	}
+}
+
+async function update(req, res) {
+	try {
+		
+	}catch (err) {
+		res.status(400).json({ err })
+	} 
+	
 }
