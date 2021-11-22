@@ -13,10 +13,10 @@ Click [here]() to launch Grade.Studio
 Link to [Trello](https://trello.com/b/W95uO7Gs/gradestudio)
 
 ## Next Steps
-..* Use the Google Docs API to allow creation of google documents of a classes grades for an assignment
-..* Allow users to add multiple students from an external document
-..* Use GoogleAuth vs. react default login
-..* Ability to add students seperate from the AddClass form and add new students to existing classes
-..* List a class' students on ClassView
-..* Add Ads for Ad revenue
-..* Deploy using hosting service other than Heroku
+* Use the Google Docs API to allow creation of google documents of a classes grades for an assignment
+* Allow users to add multiple students from an external document
+* Use GoogleAuth vs. react default login
+* Ability to add students seperate from the AddClass form and add new students to existing classes
+* List a class' students on ClassView
+* Add Ads for Ad revenue
+* Deploy using hosting service other than Heroku
