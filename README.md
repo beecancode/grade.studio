@@ -1,5 +1,5 @@
 # Welcome to Grade.Studio!
-Grade.Studio is an all-in-one grading application geared towards K-6 classes. Grade.Studio allows you to input your classes and classroom assignments, and generate percentage grades for an entire class at once! Finished grades can be saved to each assignment for safe keeping, and grades can be updated at any time. Happy Grading!
+Grade.Studio is an all-in-one grading application geared towards K-6 classes. Grade.Studio allows you to input your classes and classroom assignments, and generate percentage grades for an entire class all at once! Finished grades can be saved to each assignment for safe keeping, and grades can be updated at any time. Happy Grading!
 
 ## Screenshots
 ![Screenshot of login page](https://github.com/UrsisTech/grade.studio/blob/main/public/Screenshot1.png)
@@ -9,7 +9,7 @@ This application was creating using the MERN stack (Mongoose, Express, React, No
 
 # Getting Started
 
-Click [here]() to launch Grade.Studio
+Click [here](https://gradestudio.herokuapp.com) to launch Grade.Studio
 
 Link to [Trello](https://trello.com/b/W95uO7Gs/gradestudio)
 
