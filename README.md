@@ -2,7 +2,8 @@
 Grade.Studio is an all-in-one grading application geared towards K-6 classes. Grade.Studio allows you to input your classes and classroom assignments, and generate percentage grades for an entire class at once! Finished grades can be saved to each assignment for safe keeping, and grades can be updated at any time. Happy Grading!
 
 ## Screenshots
-
+![Screenshot of login page](https://github.com/UrsisTech/grade.studio/blob/main/public/Screenshot1.png)
+![Screenshot of Class View page](https://github.com/UrsisTech/grade.studio/blob/main/public/Screenshot2.png)
 ## Technologies Used
 This application was creating using the MERN stack (Mongoose, Express, React, Node.js ) and deployed using Heroku
 
