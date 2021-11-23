@@ -1,3 +1,4 @@
+import { enumNumberBody } from '@babel/types'
 import React, { useState, useEffect } from 'react'
 import { Label, Table, Button, Input, Header } from 'semantic-ui-react'
 import { addSubmission } from '../../utils/submissionService'
@@ -89,10 +90,16 @@ export default function SelectedAssignment({ assignment, students }) {
 									<Label>/{possAnswers}</Label>
 								</Input>
 							</Table.Cell>
-						
+						{Number.isFinite(correctAnswers[_id]) !== true
+						?
+						<Table.Cell>
+						Add or Choose an Assignment to Grade!
+						</Table.Cell>
+						:
 							<Table.Cell>
 								{percentage(correctAnswers[_id], possAnswers)}%
 							</Table.Cell>
+							}
 							
 
 
