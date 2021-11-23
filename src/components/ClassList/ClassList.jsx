@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function ClassList({ classes }) {
 
-    function refreshPage() {
-        window.location.reload(false);
-      }
 
     return (
         <Table celled inverted selectable style={{
@@ -30,7 +27,7 @@ export default function ClassList({ classes }) {
                 marginTop: 'auto',
                 fontFamily: 'Pangolin',
                 fontSize: '20px'
-            }}><Button inverted color="white" size='large' onClick={refreshPage} style={{ width: '300px', fontSize: '15px' }}>{name}</Button></Table.Cell></Link></Table.Row>
+            }}><Button inverted color="white" size='large' style={{ width: '300px', fontSize: '15px' }}>{name}</Button></Table.Cell></Link></Table.Row>
     )
     
         })}</Table>

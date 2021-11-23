@@ -89,9 +89,11 @@ export default function SelectedAssignment({ assignment, students }) {
 									<Label>/{possAnswers}</Label>
 								</Input>
 							</Table.Cell>
+						
 							<Table.Cell>
 								{percentage(correctAnswers[_id], possAnswers)}%
 							</Table.Cell>
+							
 
 
 						</Table.Row>
