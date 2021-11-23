@@ -44,12 +44,15 @@ async function update(req, res) {
 try{
 	console.log(req.body)
 	const { correctAnswers, assignmentId } = req.body
-	console.log(assignmentId)
-	const submission = await Submission.findOne({assignmentId: assignmentId});
-	console.log(submission, "<--submission")
-	await Submission.updateMany({assignmentId: req.body.assignmentId}, {correctAnswers: req.body.correctAnswers[assignmentId]})
-	res.status(201).json({ data: submission })
-	submission.save()
+	const studentsIds = Object.keys(correctAnswers)
+	studentsIds.forEach(async (id) => {
+		const sub = await Submission.findOneAndUpdate({student: id},
+			 {correctAnswers: correctAnswers[id]}, 
+			 {new: true})
+			 console.log(sub)
+	})
+	res.status(200).json({data: "working" })
+
   
 } catch (err) {
 	console.log(err)

@@ -41,6 +41,7 @@ export default function SelectedAssignment({ assignment, students }) {
 			correctAnswers,
 			assignmentId: assignment._id
 		})
+		
 		function getUpdate() {
 			return fetch(BASE_URL, {
 				headers: {
