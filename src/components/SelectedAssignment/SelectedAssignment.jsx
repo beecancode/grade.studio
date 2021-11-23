@@ -1,7 +1,7 @@
 import { enumNumberBody } from '@babel/types'
 import React, { useState, useEffect } from 'react'
 import { Label, Table, Button, Input, Header } from 'semantic-ui-react'
-import { addSubmission } from '../../utils/submissionService'
+import { addSubmission, updateSubmission } from '../../utils/submissionService'
 export default function SelectedAssignment({ assignment, students }) {
 	const [correctAnswers, setCorrectAnswers] = useState({})
 	const [currentAssignmentId, setCurrentAssignmentId] = useState("")
@@ -15,6 +15,7 @@ export default function SelectedAssignment({ assignment, students }) {
 			for (const {  _id } of students) {
 				let score = possAnswers
 				const alreadySubmitted = submissions.find(({ student }) => student === _id)
+				console.log("useEffect runs after update")
 				if (alreadySubmitted) {
 					score = alreadySubmitted.correctAnswers
 				}
@@ -34,7 +35,7 @@ export default function SelectedAssignment({ assignment, students }) {
 	
 	async function updateGrades() {
 		// console.log('-----> now update instead of submit', JSON.stringify(correctAnswers, assignment._id))
-		const updatedGrades = await addSubmission({
+		const updatedGrades = await updateSubmission({
 			correctAnswers,
 			assignmentId: assignment._id
 		})
@@ -118,7 +119,7 @@ export default function SelectedAssignment({ assignment, students }) {
 					update grades
 				</Button>
 				:
-				<Button inverted color="white" onClick={submitGrades} size="massive"  >Submit Grades</Button>
+				<Button inverted color="white" onClick={submitGrades} size="massive" >Submit Grades</Button>
 			}
 
 

@@ -44,7 +44,8 @@ async function update(req, res) {
 try{
 	console.log(req.body)
 	const { correctAnswers, assignmentId } = req.body
-	const submission = await Submission.findById(assignmentId);
+	console.log(assignmentId)
+	const submission = await Submission.findOne({assignmentId: assignmentId});
 	console.log(submission, "<--submission")
 	await Submission.updateMany({assignmentId: req.body.assignmentId}, {correctAnswers: req.body.correctAnswers[assignmentId]})
 	res.status(201).json({ data: submission })

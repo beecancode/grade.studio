@@ -20,11 +20,11 @@ export function addSubmission(submissionObject) {
 export function updateSubmission(submissionObject) {
 	const token = tokenService.getToken()
 	return fetch(BASE_URL + 'update', {
-		method: 'PUT',
-		headers: new Headers({
+		method: 'PUT', 
+		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`
-		}),  
+		},
 		body: JSON.stringify(submissionObject)
 	})
 	.then(res => {
