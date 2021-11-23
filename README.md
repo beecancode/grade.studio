@@ -21,3 +21,4 @@ Link to [Trello](https://trello.com/b/W95uO7Gs/gradestudio)
 * List a class' students on ClassView
 * Add Ads for Ad revenue
 * Deploy using hosting service other than Heroku
+* Add user timeout for forgotten logout
