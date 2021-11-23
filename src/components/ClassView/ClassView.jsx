@@ -20,7 +20,8 @@ export default function ClassView({classes, getClasses}) {
                 border: 'solid',
                 textAlign: 'center',
                 marginBottom: 'auto',
-                fontFamily: 'Pangolin'
+                fontFamily: 'Pangolin',
+                fontSize:'40px'
             }}>{ aClass.name }</Header>
             
             <Table celled color='black' inverted selectable style={{

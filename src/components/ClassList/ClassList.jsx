@@ -23,12 +23,11 @@ export default function ClassList({ classes }) {
         state:{_id, name }
     }} key={_id}>
         <Table.Cell selectable style={{
-                paddingTop: '15px',
-                paddingBottom: '5px',
+
                 marginTop: 'auto',
                 fontFamily: 'Pangolin',
                 fontSize: '20px'
-            }}><Button inverted color="white" style={{ width: '300px' }}>{name}</Button></Table.Cell></Link></Table.Row>
+            }}><Button inverted color="white" size='large' style={{ width: '300px', fontSize: '15px' }}>{name}</Button></Table.Cell></Link></Table.Row>
     )
     
         })}</Table>

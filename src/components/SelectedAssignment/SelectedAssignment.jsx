@@ -32,7 +32,11 @@ export default function SelectedAssignment({ assignment, students }) {
 	}
 	
 	async function updateGrades() {
-		console.log('-----> now update instead of submit', correctAnswers, assignment._id)
+		// console.log('-----> now update instead of submit', JSON.stringify(correctAnswers, assignment._id))
+		const updatedGrades = await addSubmission({
+			correctAnswers,
+			assignmentId: assignment._id
+		})
 	}
 
 	function handleChange({ target: { name, value } }) {

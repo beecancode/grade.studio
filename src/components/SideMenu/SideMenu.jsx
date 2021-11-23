@@ -13,9 +13,9 @@ export default function SideMenu({ handleLogout, classes, showClassForm, setButt
     }
 
     return (
-        <Menu inverted pointing vertical style={{ minHeight: '100vh', minWidth: '400px', textAlign: 'center' }} className='SideMenu'>
+        <Menu inverted pointing vertical style={{ minHeight: '100vh', minWidth: '500px', textAlign: 'center' }} className='SideMenu'>
             <Menu.Header>
-                <Link to="/"><Image src="../Grade.Studio1(2).gif" size='huge' /></Link>
+                <Link to="/"><Image src="../Grade.Studio1(2).gif" size='massive' style={{ minWidth: '500px' }} /></Link>
             </Menu.Header>
             <Menu.Item style={{ border: 'solid' }}>
                 <Grid>

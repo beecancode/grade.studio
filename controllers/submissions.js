@@ -1,12 +1,14 @@
+
 const Assignment = require('../models/assignment')
 const Student = require('../models/student')
-const Submission = require('../models/submission')
+const Submission = require('../models/submission');
+const { assignmentSchema } = require('../schemas');
 
 
 module.exports = { create, update };
 
 async function create(req, res) {
-	console.log(req.body)
+	console.log(JSON.stringify(req.body), "<--req.body")
 	try {
 		const { correctAnswers, assignmentId } = req.body
 		const assignment = await Assignment.findById(assignmentId);
@@ -37,11 +39,18 @@ async function create(req, res) {
 	}
 }
 
+
 async function update(req, res) {
-	try {
-		
-	}catch (err) {
-		res.status(400).json({ err })
-	} 
-	
-}
+try{
+	console.log(req.body)
+	const { correctAnswers, assignmentId } = req.body
+	const submission = await Submission.findById(assignmentId);
+	console.log(submission, "<--submission")
+	await Submission.updateMany({assignmentId: req.body.assignmentId}, {correctAnswers: req.body.correctAnswers[assignmentId]})
+	res.status(201).json({ data: submission })
+	submission.save()
+  
+} catch (err) {
+	console.log(err)
+	res.status(400).json({ err })
+}}
